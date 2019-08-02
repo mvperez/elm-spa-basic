@@ -54,15 +54,17 @@ type Route
 routeParser : UP.Parser (Route -> a) a
 routeParser =
     UP.oneOf
-        [ UP.map Home (UP.top)
-        , UP.map Home (UP.s "home")
+        [ UP.map Home UP.top
         , UP.map About (UP.s "about")
+        , UP.map NotFound (UP.s "pagenotfound")
         ]
 
 
 urlToRoute : Url.Url -> Route
 urlToRoute url =
-    Maybe.withDefault NotFound (UP.parse routeParser url)
+    url 
+        |> UP.parse routeParser
+        |> Maybe.withDefault Home 
 
 
 

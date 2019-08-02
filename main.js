@@ -4333,9 +4333,9 @@ var author$project$Main$UrlChanged = function (a) {
 var author$project$Main$UrlRequested = function (a) {
 	return {$: 'UrlRequested', a: a};
 };
-var author$project$Main$NotFound = {$: 'NotFound'};
-var author$project$Main$About = {$: 'About'};
 var author$project$Main$Home = {$: 'Home'};
+var author$project$Main$About = {$: 'About'};
+var author$project$Main$NotFound = {$: 'NotFound'};
 var elm$core$Basics$EQ = {$: 'EQ'};
 var elm$core$Basics$LT = {$: 'LT'};
 var elm$core$Elm$JsArray$foldr = _JsArray_foldr;
@@ -4621,13 +4621,17 @@ var author$project$Main$routeParser = elm$url$Url$Parser$oneOf(
 			A2(elm$url$Url$Parser$map, author$project$Main$Home, elm$url$Url$Parser$top),
 			A2(
 			elm$url$Url$Parser$map,
-			author$project$Main$Home,
-			elm$url$Url$Parser$s('home')),
+			author$project$Main$About,
+			elm$url$Url$Parser$s('about')),
 			A2(
 			elm$url$Url$Parser$map,
-			author$project$Main$About,
-			elm$url$Url$Parser$s('about'))
+			author$project$Main$NotFound,
+			elm$url$Url$Parser$s('pagenotfound'))
 		]));
+var elm$core$Basics$apR = F2(
+	function (x, f) {
+		return f(x);
+	});
 var elm$core$Maybe$withDefault = F2(
 	function (_default, maybe) {
 		if (maybe.$ === 'Just') {
@@ -5280,7 +5284,7 @@ var elm$url$Url$Parser$parse = F2(
 var author$project$Main$urlToRoute = function (url) {
 	return A2(
 		elm$core$Maybe$withDefault,
-		author$project$Main$NotFound,
+		author$project$Main$Home,
 		A2(elm$url$Url$Parser$parse, author$project$Main$routeParser, url));
 };
 var elm$core$Basics$False = {$: 'False'};
@@ -5336,10 +5340,6 @@ var elm$core$Array$compressNodes = F2(
 				continue compressNodes;
 			}
 		}
-	});
-var elm$core$Basics$apR = F2(
-	function (x, f) {
-		return f(x);
 	});
 var elm$core$Tuple$first = function (_n0) {
 	var x = _n0.a;
