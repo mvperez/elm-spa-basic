@@ -4333,9 +4333,9 @@ var author$project$Main$UrlChanged = function (a) {
 var author$project$Main$UrlRequested = function (a) {
 	return {$: 'UrlRequested', a: a};
 };
-var author$project$Main$Home = {$: 'Home'};
-var author$project$Main$About = {$: 'About'};
 var author$project$Main$NotFound = {$: 'NotFound'};
+var author$project$Main$About = {$: 'About'};
+var author$project$Main$Home = {$: 'Home'};
 var elm$core$Basics$EQ = {$: 'EQ'};
 var elm$core$Basics$LT = {$: 'LT'};
 var elm$core$Elm$JsArray$foldr = _JsArray_foldr;
@@ -5284,7 +5284,7 @@ var elm$url$Url$Parser$parse = F2(
 var author$project$Main$urlToRoute = function (url) {
 	return A2(
 		elm$core$Maybe$withDefault,
-		author$project$Main$Home,
+		author$project$Main$NotFound,
 		A2(elm$url$Url$Parser$parse, author$project$Main$routeParser, url));
 };
 var elm$core$Basics$False = {$: 'False'};
@@ -6084,7 +6084,7 @@ var author$project$Main$view = function (model) {
 					_List_Nil,
 					_List_fromArray(
 						[
-							author$project$Main$viewLink('/home'),
+							author$project$Main$viewLink('/'),
 							author$project$Main$viewLink('/about')
 						]))
 				]),
