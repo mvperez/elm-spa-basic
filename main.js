@@ -5994,24 +5994,25 @@ var elm$html$Html$Attributes$href = function (url) {
 		'href',
 		_VirtualDom_noJavaScriptUri(url));
 };
-var author$project$Main$viewLink = function (path) {
-	return A2(
-		elm$html$Html$li,
-		_List_Nil,
-		_List_fromArray(
-			[
-				A2(
-				elm$html$Html$a,
-				_List_fromArray(
-					[
-						elm$html$Html$Attributes$href(path)
-					]),
-				_List_fromArray(
-					[
-						elm$html$Html$text(path)
-					]))
-			]));
-};
+var author$project$Main$viewLink = F2(
+	function (path, pathText) {
+		return A2(
+			elm$html$Html$li,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					elm$html$Html$a,
+					_List_fromArray(
+						[
+							elm$html$Html$Attributes$href(path)
+						]),
+					_List_fromArray(
+						[
+							elm$html$Html$text(pathText)
+						]))
+				]));
+	});
 var elm$html$Html$p = _VirtualDom_node('p');
 var author$project$Page$About$aboutPage = {
 	content: _List_fromArray(
@@ -6084,8 +6085,8 @@ var author$project$Main$view = function (model) {
 					_List_Nil,
 					_List_fromArray(
 						[
-							author$project$Main$viewLink('/'),
-							author$project$Main$viewLink('/about')
+							A2(author$project$Main$viewLink, '/', 'home'),
+							A2(author$project$Main$viewLink, '/about', 'about')
 						]))
 				]),
 			page.content),

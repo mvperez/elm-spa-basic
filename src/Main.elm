@@ -138,14 +138,14 @@ view model =
         [ text "The current URL is: "
         , b [] [ text (Url.toString model.url) ]
         , ul []
-            [ viewLink "/"
-            , viewLink "/about"
+            [ viewLink "/" "home"
+            , viewLink "/about" "about"
             ]
         ]
             ++ page.content
     }
 
 
-viewLink : String -> Html msg
-viewLink path =
-    li [] [ a [ href path ] [ text path ] ]
+viewLink : String -> String -> Html msg
+viewLink path pathText =
+    li [] [ a [ href path ] [ text pathText ] ]
