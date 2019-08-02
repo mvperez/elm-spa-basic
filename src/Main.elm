@@ -62,9 +62,9 @@ routeParser =
 
 urlToRoute : Url.Url -> Route
 urlToRoute url =
-    url 
+    url
         |> UP.parse routeParser
-        |> Maybe.withDefault Home 
+        |> Maybe.withDefault Home
 
 
 
