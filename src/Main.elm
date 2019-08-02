@@ -56,7 +56,6 @@ routeParser =
     UP.oneOf
         [ UP.map Home UP.top
         , UP.map About (UP.s "about")
-        , UP.map NotFound (UP.s "pagenotfound")
         ]
 
 
@@ -78,13 +77,6 @@ type Msg
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
-    let
-        log1 =
-            log "msg:" msg
-
-        log2 =
-            log "model:" model
-    in
     case msg of
         UrlRequested urlRequest ->
             case urlRequest of

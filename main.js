@@ -4622,11 +4622,7 @@ var author$project$Main$routeParser = elm$url$Url$Parser$oneOf(
 			A2(
 			elm$url$Url$Parser$map,
 			author$project$Main$About,
-			elm$url$Url$Parser$s('about')),
-			A2(
-			elm$url$Url$Parser$map,
-			author$project$Main$NotFound,
-			elm$url$Url$Parser$s('pagenotfound'))
+			elm$url$Url$Parser$s('about'))
 		]));
 var elm$core$Basics$apR = F2(
 	function (x, f) {
@@ -5899,7 +5895,6 @@ var elm$url$Url$fromString = function (str) {
 };
 var elm$browser$Browser$Navigation$load = _Browser_load;
 var elm$browser$Browser$Navigation$pushUrl = _Browser_pushUrl;
-var elm$core$Debug$log = _Debug_log;
 var elm$url$Url$addPort = F2(
 	function (maybePort, starter) {
 		if (maybePort.$ === 'Nothing') {
@@ -5946,8 +5941,6 @@ var elm$url$Url$toString = function (url) {
 };
 var author$project$Main$update = F2(
 	function (msg, model) {
-		var log2 = A2(elm$core$Debug$log, 'model:', model);
-		var log1 = A2(elm$core$Debug$log, 'msg:', msg);
 		if (msg.$ === 'UrlRequested') {
 			var urlRequest = msg.a;
 			if (urlRequest.$ === 'Internal') {
