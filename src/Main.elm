@@ -54,7 +54,8 @@ type Route
 routeParser : UP.Parser (Route -> a) a
 routeParser =
     UP.oneOf
-        [ UP.map Home (UP.s "home")
+        [ UP.map Home (UP.top)
+        , UP.map Home (UP.s "home")
         , UP.map About (UP.s "about")
         ]
 

@@ -3,14 +3,15 @@
 
 <head>
     <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
-    <title>elm-spa</title>
+    <title>elm-spa-basic</title>
     <script src="main.js"></script>
 </head>
 
 <body>
-    <script>
-        var app = Elm.Main.init();
-    </script>
+    <div id="elm"></div>
 </body>
+<script>
+    var app = Elm.Main.init({ node: document.getElementById('elm') });
+</script>
 
 </html>

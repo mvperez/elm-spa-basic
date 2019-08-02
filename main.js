@@ -4610,9 +4610,15 @@ var elm$url$Url$Parser$s = function (str) {
 			}
 		});
 };
+var elm$url$Url$Parser$top = elm$url$Url$Parser$Parser(
+	function (state) {
+		return _List_fromArray(
+			[state]);
+	});
 var author$project$Main$routeParser = elm$url$Url$Parser$oneOf(
 	_List_fromArray(
 		[
+			A2(elm$url$Url$Parser$map, author$project$Main$Home, elm$url$Url$Parser$top),
 			A2(
 			elm$url$Url$Parser$map,
 			author$project$Main$Home,
@@ -6041,7 +6047,7 @@ var author$project$Page$NotFound$notFoundPage = {
 			_List_Nil,
 			_List_fromArray(
 				[
-					elm$html$Html$text('Sorry, can not find page.')
+					elm$html$Html$text('Sorry, can not find the page.')
 				]))
 		]),
 	title: 'Not Found'
